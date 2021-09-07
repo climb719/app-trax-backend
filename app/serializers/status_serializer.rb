@@ -1,4 +1,4 @@
 class StatusSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name 
   has_many :jobs
 end
