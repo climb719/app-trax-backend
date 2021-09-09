@@ -13,7 +13,7 @@ class JobsController < ApplicationController
     private
 
     def job_params
-        byebug
+        params.require(:job).permit(:title, :company, :status_id, :date, :notes, :link)
     end
 end
 
