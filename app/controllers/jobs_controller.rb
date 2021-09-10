@@ -12,10 +12,11 @@ class JobsController < ApplicationController
 
     def update
         job = Job.find(params[:id])
-        if job.update(job-params)
-            render json: jobs
+        if job.update(job_params)
+            render json: job
         else
             render json: {error: "could not save"}
+        end
     end
 
     private
