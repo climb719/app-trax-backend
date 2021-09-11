@@ -14,9 +14,16 @@ class JobsController < ApplicationController
         job = Job.find(params[:id])
         if job.update(job_params)
             render json: job
+            #byebug
         else
             render json: {error: "could not save"}
         end
+    end
+
+    def destroy
+        job = Job.find(params[:id])
+        job.destroy
+        render json: {message: "successfully deleted #{job.title}"}
     end
 
     private
