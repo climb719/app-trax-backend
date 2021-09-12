@@ -12,6 +12,7 @@ class JobsController < ApplicationController
             render json: job
         else
             render json: {error: job.errors.full_messages.to_sentence}, status: 400
+        end
     end
 
     def update
@@ -19,7 +20,7 @@ class JobsController < ApplicationController
             render json: @job
             #byebug
         else
-            render json: {@job.errors.full_messages.to_sentence}, status: 400
+            render json: {error: job.errors.full_messages.to_sentence}, status: 400
         end
     end
 
@@ -37,5 +38,8 @@ class JobsController < ApplicationController
     def job_params
         params.require(:job).permit(:title, :company, :status_id, :date, :notes, :link)
     end
+
+    
+
 end
 
