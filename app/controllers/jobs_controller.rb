@@ -23,13 +23,13 @@ class JobsController < ApplicationController
             render json: @job
             #byebug
         else
-            render json: {error: job.errors.full_messages.to_sentence}, status: 400
+            render json: {error: @job.errors.full_messages.to_sentence}, status: 400
         end
     end
 
     def destroy
         @job.destroy
-        render json: {message: "successfully deleted #{job.title}"}
+        render json: {message: "successfully deleted #{@job.title}"}
     end
 
     private
