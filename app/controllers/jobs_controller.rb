@@ -8,20 +8,12 @@ class JobsController < ApplicationController
 
     def create 
         job = Job.create(job_params)
-        # byebug
         render json: job
-        # job = Job.new(job_params)
-        # if job.save
-        #     render json: job
-        # else
-        #     render json: {error: job.errors.full_messages.to_sentence}, status: 400
-        #end
     end
 
     def update
         if @job.update(job_params)
             render json: @job
-            #byebug
         else
             render json: {error: @job.errors.full_messages.to_sentence}, status: 400
         end

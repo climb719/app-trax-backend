@@ -2,7 +2,6 @@ class Job < ApplicationRecord
     belongs_to :status
     belongs_to :user
 
-    
     def app_date
         self.date.strftime("%d %b. %Y")
     end
